@@ -1,26 +1,22 @@
 
-public class VehiculoPasajeros extends Vehiculo {
+public abstract class VehiculoPasajeros extends Vehiculo {
 
-    private double costoPorKilometro;
-    private int anioLimite;
-    private double extra;
+    private static double costoPorKilometro = 2000.0;
+    private static double extra = 500.0;
 
-    public VehiculoPasajeros(String patente, int anio, double kilometos_recorridos, int asientos, double costoPorKilometro,
-            int anioLimite,
-            double extra) {
+    public VehiculoPasajeros(String patente, int anio, double kilometos_recorridos, int asientos) {
         super(patente, anio, kilometos_recorridos, asientos);
-        this.costoPorKilometro = costoPorKilometro;
-        this.anioLimite = anioLimite;
-        this.extra = extra;
     }
+
+    public abstract int getAnioLimite();
 
     @Override
     public double getCostoMantenimiento() {
-        if (this.getAnio() < this.anioLimite) {
-            return (this.costoPorKilometro * this.getKilometrosRecorridos()) + this.extra;
-        } else {
-            return (this.costoPorKilometro * this.getKilometrosRecorridos());
+        double costoMantenimiento = costoPorKilometro * this.getKilometrosRecorridos();
+        if (this.getAnio() < this.getAnioLimite()) {
+            costoMantenimiento += extra;
         }
+        return costoMantenimiento;
     }
 
 }

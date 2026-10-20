@@ -8,8 +8,8 @@ public class App {
         // =========================
         // VEHICULOS
         // =========================
-        VehiculoPasajeros taxi1 = new VehiculoPasajeros("AA111AA", 2008, 100, 4, 50.0, 2010, 100.0);
-        VehiculoPasajeros taxi2 = new VehiculoPasajeros("BB222BB", 2022, 50, 4, 50.0, 2020, 100.0);
+        Taxi taxi1 = new Taxi("AA111AA", 2008, 100, 4);
+        Taxi taxi2 = new Taxi("BB222BB", 2022, 50, 4);
 
         Colectivo urbano
                 = new Colectivo("CC333CC", 2018, 5000, 30, 100.0);
@@ -20,8 +20,8 @@ public class App {
         Colectivo combi
                 = new Colectivo("EE555EE", 2023, 8000, 20, 120.0);
 
-        VehiculoPasajeros remis
-                = new VehiculoPasajeros("FF666FF", 2018, 200, 4, 50.0, 2020, 100.0);
+        Remis remis
+                = new Remis("FF666FF", 2018, 200, 4);
 
         MaquinariaVial maquina
                 = new MaquinariaVial(
