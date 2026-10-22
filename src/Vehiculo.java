@@ -48,7 +48,7 @@ public abstract class Vehiculo extends Elemento {
     public List<Vehiculo> buscar(Condicion condicion) {
         List<Vehiculo> resultado = new ArrayList<>();
 
-        if (condicion.cumpleRequisitos(this)) {
+        if (condicion.cumple(this)) {
             resultado.add(this);
         }
 

@@ -1,5 +1,5 @@
 
-public class CondicionAND implements Condicion {
+public class CondicionAND extends Condicion {
 
     private Condicion condicion1;
     private Condicion condicion2;
@@ -10,8 +10,8 @@ public class CondicionAND implements Condicion {
     }
 
     @Override
-    public boolean cumpleRequisitos(Vehiculo vehiculo) {
-        return condicion1.cumpleRequisitos(vehiculo) && condicion2.cumpleRequisitos(vehiculo);
+    public boolean cumple(Elemento el) {
+        return condicion1.cumple(el) && condicion2.cumple(el);
     }
 
 }

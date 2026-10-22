@@ -1,5 +1,5 @@
 
-public interface Condicion {
+public abstract class Condicion {
 
-    boolean cumpleRequisitos(Vehiculo vehiculo);
+    public abstract boolean cumple(Elemento el);
 }

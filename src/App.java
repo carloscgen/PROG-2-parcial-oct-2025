@@ -106,6 +106,9 @@ public class App {
         // =========================
         // CONDICIONES
         // =========================
+        Condicion posterioresA2024
+                = new CondicionAnioMayor(2024);
+
         Condicion posterioresA2020
                 = new CondicionAnioMayor(2020);
 
@@ -168,42 +171,9 @@ public class App {
         System.out.println();
         System.out.println("--- FLOTAS RESTRINGIDAS ---");
 
-        FlotaPorAnio flotaNueva
-                = new FlotaPorAnio(
-                        2024
-                );
+        Flota FlotaCondicionada = new FlotaCondicionada(posterioresA2024);
 
-        flotaNueva.agregarElemento(taxi1);
-        flotaNueva.agregarElemento(taxi2);
-
-        System.out.println(
-                "Flota por año - asientos: "
-                + flotaNueva.getAsientos()
-        );
-
-        FlotaPorPocoUso pocoUso
-                = new FlotaPorPocoUso(10000);
-
-        pocoUso.agregarElemento(taxi1);
-        pocoUso.agregarElemento(combi);
-        pocoUso.agregarElemento(media);
-
-        System.out.println(
-                "Flota poco uso - asientos: "
-                + pocoUso.getAsientos()
-        );
-
-        FlotaAesthetic aesthetic
-                = new FlotaAesthetic();
-
-        aesthetic.agregarElemento(taxi1);
-        aesthetic.agregarElemento(taxi2);
-        aesthetic.agregarElemento(combi);
-
-        System.out.println(
-                "Flota aesthetic - asientos: "
-                + aesthetic.getAsientos()
-        );
+        FlotaCondicionada.agregarElemento(remis);
 
         // =========================
         // STATIC MAQUINARIA

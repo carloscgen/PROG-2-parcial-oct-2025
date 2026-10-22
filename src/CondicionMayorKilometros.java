@@ -1,15 +1,15 @@
 
-public class CondicionMayorKilometros implements Condicion {
+public class CondicionMayorKilometros extends Condicion {
 
-    double kilometros;
+    private double kilometros;
 
     public CondicionMayorKilometros(double kilometros) {
         this.kilometros = kilometros;
     }
 
     @Override
-    public boolean cumpleRequisitos(Vehiculo vehiculo) {
-        return vehiculo.getKilometrosRecorridos() > this.kilometros;
+    public boolean cumple(Elemento el) {
+        return el.getKilometrosRecorridos() > this.kilometros;
     }
 
 }

@@ -1,14 +1,14 @@
 
-public class CondicionAnioMayor implements Condicion {
+public class CondicionAnioMayor extends Condicion {
 
-    int anio;
+    private int anio;
 
     public CondicionAnioMayor(int anio) {
         this.anio = anio;
     }
 
     @Override
-    public boolean cumpleRequisitos(Vehiculo vehiculo) {
-        return vehiculo.getAnio() > this.anio;
+    public boolean cumple(Elemento el) {
+        return el.getAnio() > this.anio;
     }
 }

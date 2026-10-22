@@ -1,15 +1,15 @@
 
-public class CondicionTieneCaracteristica implements Condicion {
+public class CondicionTieneCaracteristica extends Condicion {
 
-    String caracteristica;
+    private String caracteristica;
 
     public CondicionTieneCaracteristica(String caracteristica) {
         this.caracteristica = caracteristica;
     }
 
     @Override
-    public boolean cumpleRequisitos(Vehiculo vehiculo) {
-        return vehiculo.tieneCaracteristica(this.caracteristica);
+    public boolean cumple(Elemento el) {
+        return el.tieneCaracteristica(this.caracteristica);
     }
 
 }
