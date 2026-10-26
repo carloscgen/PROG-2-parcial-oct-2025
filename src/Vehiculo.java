@@ -18,6 +18,10 @@ public abstract class Vehiculo extends Elemento {
         this.caracteristicas = new ArrayList<>();
     }
 
+    public String getPatente() {
+        return this.patente;
+    }
+
     public void agregarCaracteristica(String caracteristica) {
         caracteristicas.add(caracteristica);
     }
