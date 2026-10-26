@@ -3,194 +3,172 @@ import java.util.List;
 
 public class App {
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        // =========================
-        // VEHICULOS
-        // =========================
-        Taxi taxi1 = new Taxi("AA111AA", 2008, 100, 4);
-        Taxi taxi2 = new Taxi("BB222BB", 2022, 50, 4);
+                // =========================
+                // VEHICULOS
+                // =========================
 
-        Colectivo urbano
-                = new Colectivo("CC333CC", 2018, 5000, 30, 100.0);
+                Taxi taxi1 = new Taxi("AA111AA", 2008, 100, 4, 2010, 2000, 500);
+                Taxi taxi2 = new Taxi("BB222BB", 2022, 50, 4, 2010, 2000, 500);
 
-        Colectivo media
-                = new Colectivo("DD444DD", 2015, 120000, 40, 150.0);
+                Taxi remis = new Taxi("FF666FF", 2018, 200, 4, 2020, 2000, 500);
 
-        Colectivo combi
-                = new Colectivo("EE555EE", 2023, 8000, 20, 120.0);
+                Colectivo urbano = new Colectivo("CC333CC", 2018, 5000, 30, 5000);
 
-        Remis remis
-                = new Remis("FF666FF", 2018, 200, 4);
+                Colectivo media = new Colectivo("DD444DD", 2015, 120000, 40, 7000);
 
-        MaquinariaVial maquina
-                = new MaquinariaVial(
-                        "GG777GG",
-                        2020,
-                        0,
-                        2,
-                        10
-                );
+                Colectivo combi = new Colectivo("EE555EE", 2023, 8000, 20, 6000);
 
-        taxi1.agregarCaracteristica("Buen estado");
-        taxi2.agregarCaracteristica("Beige");
-        urbano.agregarCaracteristica("Aire acondicionado");
-        combi.agregarCaracteristica("Beige");
+                MaquinariaVial maquina = new MaquinariaVial(
+                                "GG777GG",
+                                2020,
+                                0,
+                                2,
+                                10);
 
-        // =========================
-        // COSTOS INDIVIDUALES
-        // =========================
-        System.out.println("--- COSTOS ---");
+                taxi1.agregarCaracteristica("Buen estado");
+                taxi2.agregarCaracteristica("Beige");
+                urbano.agregarCaracteristica("Aire acondicionado");
+                combi.agregarCaracteristica("Beige");
 
-        System.out.println("Taxi viejo: "
-                + taxi1.getCostoMantenimiento());
+                // =========================
+                // COSTOS INDIVIDUALES
+                // =========================
+                System.out.println("--- COSTOS ---");
 
-        System.out.println("Taxi nuevo: "
-                + taxi2.getCostoMantenimiento());
+                System.out.println("Taxi viejo: "
+                                + taxi1.getCostoMantenimiento());
 
-        System.out.println("Urbano: "
-                + urbano.getCostoMantenimiento());
+                System.out.println("Taxi nuevo: "
+                                + taxi2.getCostoMantenimiento());
 
-        System.out.println("Media distancia: "
-                + media.getCostoMantenimiento());
+                System.out.println("Urbano: "
+                                + urbano.getCostoMantenimiento());
 
-        System.out.println("Combi escolar: "
-                + combi.getCostoMantenimiento());
+                System.out.println("Media distancia: "
+                                + media.getCostoMantenimiento());
 
-        System.out.println("Remis: "
-                + remis.getCostoMantenimiento());
+                System.out.println("Combi escolar: "
+                                + combi.getCostoMantenimiento());
 
-        System.out.println("Maquinaria vial: "
-                + maquina.getCostoMantenimiento());
+                System.out.println("Remis: "
+                                + remis.getCostoMantenimiento());
 
-        // =========================
-        // FLOTA Y SUBFLOTA
-        // =========================
-        Flota subFlota = new Flota();
+                System.out.println("Maquinaria vial: "
+                                + maquina.getCostoMantenimiento());
 
-        subFlota.agregarElemento(taxi1);
-        subFlota.agregarElemento(combi);
+                // =========================
+                // FLOTA Y SUBFLOTA
+                // =========================
+                Flota subFlota = new Flota();
 
-        Flota flotaPrincipal = new Flota();
+                subFlota.agregarElemento(taxi1);
+                subFlota.agregarElemento(combi);
 
-        flotaPrincipal.agregarElemento(taxi2);
-        flotaPrincipal.agregarElemento(urbano);
-        flotaPrincipal.agregarElemento(media);
-        flotaPrincipal.agregarElemento(remis);
-        flotaPrincipal.agregarElemento(maquina);
+                Flota flotaPrincipal = new Flota();
 
-        // Acá probamos Composite de verdad:
-        flotaPrincipal.agregarElemento(subFlota);
+                flotaPrincipal.agregarElemento(taxi2);
+                flotaPrincipal.agregarElemento(urbano);
+                flotaPrincipal.agregarElemento(media);
+                flotaPrincipal.agregarElemento(remis);
+                flotaPrincipal.agregarElemento(maquina);
 
-        System.out.println();
-        System.out.println("--- FLOTA PRINCIPAL ---");
+                // Acá probamos Composite de verdad:
+                flotaPrincipal.agregarElemento(subFlota);
 
-        System.out.println("Modelo más antiguo: "
-                + flotaPrincipal.getAnio());
+                System.out.println();
+                System.out.println("--- FLOTA PRINCIPAL ---");
 
-        System.out.println("Total asientos: "
-                + flotaPrincipal.getAsientos());
+                System.out.println("Modelo más antiguo: "
+                                + flotaPrincipal.getAnio());
 
-        System.out.println("Total kilometros: "
-                + flotaPrincipal.getKilometrosRecorridos());
+                System.out.println("Total asientos: "
+                                + flotaPrincipal.getAsientos());
 
-        System.out.println("Costo mantenimiento total: "
-                + flotaPrincipal.getCostoMantenimiento());
+                System.out.println("Total kilometros: "
+                                + flotaPrincipal.getKilometrosRecorridos());
 
-        System.out.println("¿Tiene Beige?: "
-                + flotaPrincipal.tieneCaracteristica("Beige"));
+                System.out.println("Costo mantenimiento total: "
+                                + flotaPrincipal.getCostoMantenimiento());
 
-        System.out.println("¿Tiene GPS?: "
-                + flotaPrincipal.tieneCaracteristica("GPS"));
+                System.out.println("¿Tiene Beige?: "
+                                + flotaPrincipal.tieneCaracteristica("Beige"));
 
-        // =========================
-        // CONDICIONES
-        // =========================
-        Condicion posterioresA2024
-                = new CondicionAnioMayor(2024);
+                System.out.println("¿Tiene GPS?: "
+                                + flotaPrincipal.tieneCaracteristica("GPS"));
 
-        Condicion posterioresA2020
-                = new CondicionAnioMayor(2020);
+                // =========================
+                // CONDICIONES
+                // =========================
+                Condicion posterioresA2024 = new CondicionAnioMayor(2024);
 
-        Condicion masDe10000Km
-                = new CondicionMayorKilometros(10000);
+                Condicion posterioresA2020 = new CondicionAnioMayor(2020);
 
-        Condicion beige
-                = new CondicionTieneCaracteristica("Beige");
+                Condicion masDe10000Km = new CondicionMayorKilometros(10000);
 
-        Condicion buenEstado
-                = new CondicionTieneCaracteristica("Buen estado");
+                Condicion beige = new CondicionTieneCaracteristica("Beige");
 
-        Condicion condicionCombinada
-                = new CondicionAND(
-                        buenEstado,
-                        new CondicionAnioMayor(2000)
-                );
+                Condicion buenEstado = new CondicionTieneCaracteristica("Buen estado");
 
-        // =========================
-        // BUSQUEDAS RECURSIVAS
-        // =========================
-        System.out.println();
-        System.out.println("--- BUSQUEDAS ---");
+                Condicion condicionCombinada = new CondicionAND(
+                                buenEstado,
+                                new CondicionAnioMayor(2000));
 
-        List<Vehiculo> encontrados
-                = flotaPrincipal.buscar(posterioresA2020);
+                // =========================
+                // BUSQUEDAS RECURSIVAS
+                // =========================
+                System.out.println();
+                System.out.println("--- BUSQUEDAS ---");
 
-        System.out.println(
-                "Vehiculos posteriores a 2020: "
-                + encontrados.size()
-        );
+                List<Vehiculo> encontrados = flotaPrincipal.buscar(posterioresA2020);
 
-        encontrados
-                = flotaPrincipal.buscar(masDe10000Km);
+                System.out.println(
+                                "Vehiculos posteriores a 2020: "
+                                                + encontrados.size());
 
-        System.out.println(
-                "Vehiculos con más de 10000 km: "
-                + encontrados.size()
-        );
+                encontrados = flotaPrincipal.buscar(masDe10000Km);
 
-        encontrados
-                = flotaPrincipal.buscar(beige);
+                System.out.println(
+                                "Vehiculos con más de 10000 km: "
+                                                + encontrados.size());
 
-        System.out.println(
-                "Vehiculos Beige: "
-                + encontrados.size()
-        );
+                encontrados = flotaPrincipal.buscar(beige);
 
-        encontrados
-                = flotaPrincipal.buscar(condicionCombinada);
+                System.out.println(
+                                "Vehiculos Beige: "
+                                                + encontrados.size());
 
-        System.out.println(
-                "Buen estado AND año > 2000: "
-                + encontrados.size()
-        );
+                encontrados = flotaPrincipal.buscar(condicionCombinada);
 
-        // =========================
-        // FLOTAS RESTRINGIDAS
-        // =========================
-        System.out.println();
-        System.out.println("--- FLOTAS RESTRINGIDAS ---");
+                System.out.println(
+                                "Buen estado AND año > 2000: "
+                                                + encontrados.size());
 
-        Flota FlotaCondicionada = new FlotaCondicionada(posterioresA2024);
+                // =========================
+                // FLOTAS RESTRINGIDAS
+                // =========================
+                System.out.println();
+                System.out.println("--- FLOTAS RESTRINGIDAS ---");
 
-        FlotaCondicionada.agregarElemento(remis);
+                Flota FlotaCondicionada = new FlotaCondicionada(posterioresA2024);
 
-        // =========================
-        // STATIC MAQUINARIA
-        // =========================
-        System.out.println();
-        System.out.println("--- VALOR HORA MAQUINARIA ---");
+                FlotaCondicionada.agregarElemento(remis);
 
-        System.out.println(
-                "Antes: "
-                + maquina.getCostoMantenimiento()
-        );
+                // =========================
+                // STATIC MAQUINARIA
+                // =========================
+                System.out.println();
+                System.out.println("--- VALOR HORA MAQUINARIA ---");
 
-        MaquinariaVial.updateValorHora(4000);
+                System.out.println(
+                                "Antes: "
+                                                + maquina.getCostoMantenimiento());
 
-        System.out.println(
-                "Después: "
-                + maquina.getCostoMantenimiento()
-        );
-    }
+                MaquinariaVial.updateValorHora(4000);
+
+                System.out.println(
+                                "Después: "
+                                                + maquina.getCostoMantenimiento());
+        }
 }
