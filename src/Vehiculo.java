@@ -22,14 +22,6 @@ public abstract class Vehiculo extends Elemento {
         return this.patente;
     }
 
-    public void agregarCaracteristica(String caracteristica) {
-        caracteristicas.add(caracteristica);
-    }
-
-    public boolean tieneCaracteristica(String caracteristica) {
-        return caracteristicas.contains(caracteristica);
-    }
-
     // // puede seguir siendo abstracto porque depende del tipo concreto
     // @Override
     // public abstract double getCostoMantenimiento();
@@ -46,6 +38,20 @@ public abstract class Vehiculo extends Elemento {
     @Override
     public double getKilometrosRecorridos() {
         return this.kilometos_recorridos;
+    }
+
+    public List<String> getCaracteristicas() {
+        return new ArrayList<>(this.caracteristicas);
+    }
+
+    public void agregarCaracteristica(String caracteristica) {
+        if (!this.caracteristicas.contains(caracteristica)) {
+            caracteristicas.add(caracteristica);
+        }
+    }
+
+    public boolean tieneCaracteristica(String caracteristica) {
+        return caracteristicas.contains(caracteristica);
     }
 
     @Override

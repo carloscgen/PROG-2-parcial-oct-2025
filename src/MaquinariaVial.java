@@ -14,6 +14,10 @@ public class MaquinariaVial extends Vehiculo {
         return horasTrabajadas * valorHora;
     }
 
+    public static double getValorHora() {
+        return valorHora;
+    }
+
     public static void updateValorHora(double nuevoValorHora) {
         valorHora = nuevoValorHora;
     }

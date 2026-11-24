@@ -10,6 +10,10 @@ public class Flota extends Elemento {
         this.elementos = new ArrayList<>();
     }
 
+    public List<Elemento> getElementos() {
+        return new ArrayList<>(this.elementos);
+    }
+
     @Override
     public int getAnio() {
         int anioMasAntiguo = -1;
